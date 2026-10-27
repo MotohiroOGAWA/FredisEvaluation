@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "fredisEvaluation.applicationRoot": ".",
+    "fredisEvaluation.pythonPath": "python",
+    "files.exclude": {
+      "**/__pycache__": true
+    }
+  }
+}

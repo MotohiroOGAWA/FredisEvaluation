@@ -1,0 +1,11 @@
+{
+  "source": "../../clefts_workspace/mnt/fredis_evaluation",
+  "branch": "research",
+  "commit": "0011cad4145ddc4501997f01ff79a85c1c3c9c0a",
+  "dependencies": {
+    "msentity": "a04208b0511faf920b98fc4eadc02e90110406b5"
+  },
+  "git_metadata_modified": false,
+  "scope": "Evaluation only; FREDIS runtime, models, training and prediction removed",
+  "migration_note": "Original preserved; native msentity revision is in upstream/versions.json."
+}

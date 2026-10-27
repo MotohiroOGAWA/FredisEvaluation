@@ -1,0 +1,23 @@
+{
+  "scope": "Evaluation only",
+  "python_tests": {
+    "passed": 25,
+    "command": "python -m pytest tests/evaluation -q"
+  },
+  "extension_checks": {
+    "passed": true,
+    "command": "npm run check"
+  },
+  "vsix": {
+    "path": "artifacts/fredis_evaluation_workbench.vsix",
+    "file_count": 19,
+    "evaluation_only": true
+  },
+  "python_wheel": {
+    "built": true,
+    "contains_fredis_application": false
+  },
+  "fredis_application_dependency": false,
+  "git_mutations": false,
+  "layout": "Extension and Python project share the project root"
+}

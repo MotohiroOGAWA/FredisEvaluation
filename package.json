@@ -1,0 +1,107 @@
+{
+  "name": "fredis-evaluation",
+  "displayName": "FREDIS Evaluation",
+  "description": "Independent spectrum coverage and prediction result evaluation.",
+  "version": "0.5.3",
+  "publisher": "fredis",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onCommand:fredis.openEvaluation",
+    "onCommand:fredis.openColumnEvaluation",
+    "onCommand:fredis.openGroupedEvaluation",
+    "onCustomEditor:fredis.evaluationConfigEditor"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fredis.openEvaluation",
+        "title": "FREDIS: Open Evaluation"
+      },
+      {
+        "command": "fredis.openColumnEvaluation",
+        "title": "FREDIS: Evaluation: Column Summary"
+      },
+      {
+        "command": "fredis.openGroupedEvaluation",
+        "title": "FREDIS: Evaluation: Compare Tools and Datasets"
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "fredis.evaluationConfigEditor",
+        "displayName": "FREDIS Evaluation",
+        "selector": [
+          {
+            "filenamePattern": "*.evaltrainable.pft"
+          },
+          {
+            "filenamePattern": "*.evalcol.pft"
+          },
+          {
+            "filenamePattern": "*.evalgroup.pft"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "configuration": {
+      "title": "FREDIS Evaluation",
+      "properties": {
+        "fredisEvaluation.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable with the Evaluation dependencies installed."
+        },
+        "fredisEvaluation.applicationRoot": {
+          "type": "string",
+          "default": "",
+          "description": "Evaluation Python project directory. Relative paths use the workspace folder. Empty uses this extension directory."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "fredis-workbench-file",
+        "aliases": [
+          "FREDIS Workbench File"
+        ],
+        "extensions": [
+          ".evaltrainable.pft",
+          ".evalcol.pft",
+          ".evalgroup.pft"
+        ],
+        "icon": {
+          "light": "./media/icons/fredis-file.svg",
+          "dark": "./media/icons/fredis-file.svg"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "[fredis-workbench-file]": {
+        "files.autoSave": "off"
+      }
+    }
+  },
+  "scripts": {
+    "sync:file-formats": "node scripts/sync-file-formats.js",
+    "vscode:prepublish": "npm run sync:file-formats",
+    "check": "node scripts/sync-file-formats.js --check && node --check src/extension.js && node scripts/check-evaluation.js && node scripts/check-extension.js",
+    "package": "mkdir -p artifacts && vsce package --allow-missing-repository --out artifacts/fredis_evaluation_workbench.vsix",
+    "dev": "code --extensionDevelopmentPath=. --new-window ."
+  },
+  "devDependencies": {
+    "@vscode/vsce": "2.15.0",
+    "jsdom": "22.1.0"
+  },
+  "overrides": {
+    "cheerio": "1.0.0-rc.12"
+  },
+  "license": "MIT"
+}

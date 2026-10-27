@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "formats": [
+    {
+      "id": "evaluation-trainable",
+      "suffix": ".evaltrainable.pft",
+      "viewType": "fredis.evaluationConfigEditor",
+      "editorName": "FREDIS Evaluation",
+      "evaluationKind": "filtering",
+      "label": "Trainable Spectra Evaluation",
+      "description": "Compare training spectra coverage by category and tool."
+    },
+    {
+      "id": "evaluation-column",
+      "suffix": ".evalcol.pft",
+      "viewType": "fredis.evaluationConfigEditor",
+      "editorName": "FREDIS Evaluation",
+      "evaluationKind": "column",
+      "label": "Column Evaluation",
+      "description": "Group similarity results by metadata columns."
+    },
+    {
+      "id": "evaluation-grouped",
+      "suffix": ".evalgroup.pft",
+      "viewType": "fredis.evaluationConfigEditor",
+      "editorName": "FREDIS Evaluation",
+      "evaluationKind": "grouped",
+      "label": "Grouped Box Plot",
+      "description": "Compare similarity distributions across groups and tools."
+    }
+  ]
+}
