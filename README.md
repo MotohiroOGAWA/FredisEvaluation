@@ -50,3 +50,10 @@ python -m pip install -e .
 
 Evaluation reads similarity tables directly from the public `.mssim` schema;
 it does not need the similarity calculation library or the viewer.
+
+## Development launch
+
+Select **Run FREDIS Evaluation Extension (no debugger)** in the enclosing
+workspace's Run and Debug panel, or use this repository's launch configuration.
+Evaluation opens automatically in the Extension Development Host. This is
+independent of the Workbench and only enabled for development launches.

@@ -12,6 +12,7 @@
     "Machine Learning"
   ],
   "activationEvents": [
+    "onStartupFinished",
     "onCommand:fredis.openEvaluation",
     "onCommand:fredis.openColumnEvaluation",
     "onCommand:fredis.openGroupedEvaluation",

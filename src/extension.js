@@ -11,6 +11,14 @@ function projectRoot(context) {
   return context.extensionPath;
 }
 
+function autoOpenDevelopmentPanel(context) {
+  if (process.env.FREDIS_EVALUATION_AUTO_OPEN !== '1' ||
+      context.extensionMode !== vscode.ExtensionMode.Development) return;
+  return Promise.resolve()
+    .then(() => vscode.commands.executeCommand('fredis.openEvaluation'))
+    .catch(error => vscode.window.showErrorMessage(`Failed to open FREDIS: ${error.message}`));
+}
+
 function activate(context) {
   const output = vscode.window.createOutputChannel('FREDIS Evaluation');
   context.subscriptions.push(output);
@@ -23,6 +31,7 @@ function activate(context) {
       () => evaluation.open(context, output, projectRoot, kind)));
   }
   evaluation.register(context, output, projectRoot);
+  autoOpenDevelopmentPanel(context);
 }
 
 function deactivate() {}

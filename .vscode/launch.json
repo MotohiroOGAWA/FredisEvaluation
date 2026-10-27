@@ -6,6 +6,7 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
+      "env": { "FREDIS_EVALUATION_AUTO_OPEN": "1" },
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
         "${workspaceFolder}/fredis-evaluation.code-workspace"
